@@ -37,10 +37,12 @@ class TestApp extends StatelessWidget{
       Container(
         height: 200,
         width: 200,
-        decoration: const BoxDecoration(
-          color: Colors.amber,
-          shape: BoxShape.circle,
-        ),),],
+        color: Colors.amber,
+        // decoration: const BoxDecoration(
+        //   color: Colors.amber,
+        //   shape: BoxShape.circle,
+        // ),
+        ),],
         ),
         
       );

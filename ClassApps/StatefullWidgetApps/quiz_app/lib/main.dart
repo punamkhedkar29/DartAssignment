@@ -226,7 +226,34 @@ class _QuizAppState extends State<QuizApp>{
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: Row(
+          children: [
+             const SizedBox(
+              width: 45,
+            ),
+            FloatingActionButton(
+          onPressed: () {
+            if (currentIndex > 0) {
+          setState(() {
+            currentIndex--;
+            // When going back, retain the selected answer for the previous question
+            selectedAnswerIndex = selectedAnswerIndex == -1
+                ? -1
+                : selectedAnswerIndex;
+          }
+          );
+          }
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(
+            Icons.arrow_back_ios_new_sharp,
+            color: Colors.orange,
+            ),
+        ),
+        const SizedBox(
+          width: 220,
+        ),
+        FloatingActionButton(
           onPressed: () {
             if(selectedAnswerIndex == -1){
 
@@ -242,10 +269,12 @@ class _QuizAppState extends State<QuizApp>{
           },
           backgroundColor: Colors.blue,
           child: const Icon(
-            Icons.forward,
+            Icons.arrow_forward_ios_sharp,
             color: Colors.orange,
             ),
         ),
+          ]
+        )
       );   
     }else{
       return Scaffold(

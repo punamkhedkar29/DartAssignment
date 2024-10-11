@@ -16,6 +16,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.start,
@@ -55,6 +56,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.start,
@@ -95,6 +97,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//          height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.start,
@@ -111,7 +114,6 @@
 //       ),
 //     );
 //   }
-  
 // }
 
 
@@ -120,7 +122,6 @@
 // void main(){
 //   runApp(const MyApp());
 // }
-
 // class MyApp extends StatelessWidget{
 //   const MyApp({super.key});
 //   @override
@@ -134,6 +135,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.center,
@@ -149,8 +151,7 @@
 //         ),
 //       ),
 //     );
-//   }
-  
+//   } 
 // }
 
 
@@ -174,6 +175,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.center,
@@ -214,6 +216,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.center,
@@ -254,6 +257,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.end,
@@ -293,6 +297,7 @@
 //         ),
 //         body: Container(
 //           width: MediaQuery.of(context).size.width,
+//           height: MediaQuery.of(context).size.height,
 //           color: Colors.red,
 //           child: Row(
 //             mainAxisAlignment: MainAxisAlignment.end,
@@ -334,6 +339,7 @@ class MyApp extends StatelessWidget{
         ),
         body: Container(
           width: MediaQuery.of(context).size.width,
+         height: MediaQuery.of(context).size.height,
           color: Colors.red,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -350,5 +356,4 @@ class MyApp extends StatelessWidget{
       ),
     );
   }
-  
 }

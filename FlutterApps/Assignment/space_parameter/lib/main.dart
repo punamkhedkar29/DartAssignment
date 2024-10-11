@@ -73,8 +73,7 @@
 //         ),
 //       ),
 //     );
-//   }
-  
+//   } 
 // }
 
 
@@ -97,8 +96,7 @@ class MyApp extends StatelessWidget{
           backgroundColor: Colors.blue,
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,         
           children: [
             Container(
             height: 200,
@@ -115,5 +113,4 @@ class MyApp extends StatelessWidget{
       ),
     );
   }
-  
 }

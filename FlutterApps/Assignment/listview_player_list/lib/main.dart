@@ -15,6 +15,7 @@ class MainApp extends StatefulWidget {
 class _MainApp extends State<MainApp>{
   TextEditingController nameController = TextEditingController();
   String? myName;
+  List<String> playerList=[];
 
   @override
   Widget build(BuildContext context){
@@ -22,7 +23,11 @@ class _MainApp extends State<MainApp>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("TextField"),
+          title: const Text("TextField Listview",
+            style: TextStyle(
+              fontSize:30,
+            ),
+          ),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
@@ -38,9 +43,8 @@ class _MainApp extends State<MainApp>{
                 style: const TextStyle(
                   fontSize: 30,
                 ),
-                //obscureText: true,
                 decoration: const InputDecoration(
-                  // suffixIcon: Icon(Icons.visibility),
+                
                   hintText: "Enter Name",
                   hintStyle: TextStyle(
                     fontSize: 25,
@@ -65,10 +69,14 @@ class _MainApp extends State<MainApp>{
               GestureDetector(
                 onTap: () {
                   print("Add Data");
-                  myName = nameController.text;
+                  myName = nameController.text.trim();
                   print("My Name: $myName");
-                  nameController.clear();
-                  setState(() { });
+                  if(myName != ""){
+                    playerList.add(myName!);
+                    print("Playerlist length: ${playerList.length}");
+                    nameController.clear();
+                    setState(() { });
+                  }
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -91,11 +99,17 @@ class _MainApp extends State<MainApp>{
               const SizedBox(
                 height: 40,
               ),
-              Text(
-                "Name: $myName",
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
+              ListView.builder(
+                itemCount: playerList.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index){
+                  return Text(
+                    "Name: ${playerList[index]}",
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                  );
+                },
               )
           ],
         ),

@@ -20,70 +20,72 @@ class QuizApp extends StatefulWidget{
   State<QuizApp> createState() => _QuizAppState();
 }
 
-class _QuizAppState extends State<QuizApp>{
-  List<Map> questionSet= [
+class _QuizAppState extends State<QuizApp> {
+  List<Map> questionSet = [
     {
-      "question" : "Who is the founder of Flutter language?",
-      "options" : ["Dennis Ritchie","Navneet Dalal ","James Gosling","Guido van Rossum"],
-      "answer" : 1
+      "question": "Who is the founder of Flutter language?",
+      "options": ["Dennis Ritchie", "Navneet Dalal ", "James Gosling", "Guido van Rossum"],
+      "answer": 1
     },
     {
-      "question" : "Who is the founder of CPP language?",
-      "options" : ["Bjarne Stroustrup","James Gosling","Dennis Ritchie","Guido van Rossum"],
-      "answer" : 0
+      "question": "Who is the founder of CPP language?",
+      "options": ["Bjarne Stroustrup", "James Gosling", "Dennis Ritchie", "Guido van Rossum"],
+      "answer": 0
     },
     {
-      "question" : "Who is the founder of Java language?",
-      "options" : ["Dennis Ritchie","Guido van Rossum","Bjarne Stroustrup","James Gosling"],
-      "answer" : 3
+      "question": "Who is the founder of Java language?",
+      "options": ["Dennis Ritchie", "Guido van Rossum", "Bjarne Stroustrup", "James Gosling"],
+      "answer": 3
     },
     {
-      "question" : "Who is the founder of Python language?",
-      "options" : ["Bjarne Stroustrup","Dennis Ritchie","Guido van Rossum","James Gosling"],
-      "answer" : 2
+      "question": "Who is the founder of Python language?",
+      "options": ["Bjarne Stroustrup", "Dennis Ritchie", "Guido van Rossum", "James Gosling"],
+      "answer": 2
     },
     {
-      "question" : "Who is the founder of C language?",
-      "options" : ["Dennis Ritchie","Navneet Dalal","James Gosling","Guido van Rossum"],
-      "answer" : 0
+      "question": "Who is the founder of C language?",
+      "options": ["Dennis Ritchie", "Navneet Dalal", "James Gosling", "Guido van Rossum"],
+      "answer": 0
     },
   ];
 
   int currentIndex = 0;
-  int selectedAnswerIndex = -1;
+  
+  List<int> selectedAnswers = List.filled(5, -1);
 
-  bool questionpage=true;
-  WidgetStateProperty<Color?> currentOption(int answerIndex){
-      if(selectedAnswerIndex!=-1){
-        if(answerIndex==questionSet[currentIndex]["answer"]){
-          return const WidgetStatePropertyAll(Colors.green);
-        }else if(selectedAnswerIndex==answerIndex){
-          return const WidgetStatePropertyAll(Colors.red);
-        }else{
-          return const WidgetStatePropertyAll(null);
-        }
+  bool questionPage = true;
 
-      }else{
+  WidgetStateProperty<Color?> currentOption(int answerIndex) {
+    if (selectedAnswers[currentIndex] != -1) {
+      if (answerIndex == questionSet[currentIndex]["answer"]) {
+        return const WidgetStatePropertyAll(Colors.green);
+      } else if (selectedAnswers[currentIndex] == answerIndex) {
+        return const WidgetStatePropertyAll(Colors.red);
+      } else {
         return const WidgetStatePropertyAll(null);
       }
+    } else {
+      return const WidgetStatePropertyAll(null);
+    }
   }
 
-  int count=0;
-  int? countAnswer(){
-    if(selectedAnswerIndex==questionSet[currentIndex]["answer"]){
-        return count++;
+  int count = 0;
+  int? countAnswer() {
+    if (selectedAnswers[currentIndex] == questionSet[currentIndex]["answer"]) {
+      return count++;
     }
-
+    return null;
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return isQuestionScreen();
   }
-  Scaffold isQuestionScreen(){
-    if(questionpage==true){
+
+  Scaffold isQuestionScreen() {
+    if (questionPage == true) {
       return Scaffold(
-          appBar:AppBar(
+        appBar: AppBar(
           title: const Text(
             "Quiz App",
             style: TextStyle(
@@ -102,11 +104,11 @@ class _QuizAppState extends State<QuizApp>{
             ),
             Row(
               children: [
-                  const SizedBox(
-                    width: 110,
-                  ),
+                const SizedBox(
+                  width: 110,
+                ),
                 Text(
-                  "Question: ${currentIndex+1}/${questionSet.length}",
+                  "Question: ${currentIndex + 1}/${questionSet.length}",
                   style: const TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w700,
@@ -123,9 +125,7 @@ class _QuizAppState extends State<QuizApp>{
               child: Text(
                 questionSet[currentIndex]["question"],
                 style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700
-                ),
+                    fontSize: 20, fontWeight: FontWeight.w700),
               ),
             ),
             const SizedBox(
@@ -137,11 +137,12 @@ class _QuizAppState extends State<QuizApp>{
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: currentOption(0)),
                 onPressed: () {
-                  if(selectedAnswerIndex == -1){
-                  selectedAnswerIndex=0;
-                  setState(() { });
+                  if (selectedAnswers[currentIndex] == -1) {
+                    setState(() {
+                      selectedAnswers[currentIndex] = 0;
+                    });
+                    countAnswer();
                   }
-                  countAnswer();
                 },
                 child: Text(
                   questionSet[currentIndex]["options"][0],
@@ -160,12 +161,13 @@ class _QuizAppState extends State<QuizApp>{
               height: 40,
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: currentOption(1)),
-                onPressed: () { 
-                  if(selectedAnswerIndex == -1){
-                  selectedAnswerIndex=1;
-                  setState(() { });
+                onPressed: () {
+                  if (selectedAnswers[currentIndex] == -1) {
+                    setState(() {
+                      selectedAnswers[currentIndex] = 1;
+                    });
+                    countAnswer();
                   }
-                  countAnswer();
                 },
                 child: Text(
                   questionSet[currentIndex]["options"][1],
@@ -184,12 +186,13 @@ class _QuizAppState extends State<QuizApp>{
               height: 40,
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: currentOption(2)),
-                onPressed: () { 
-                  if(selectedAnswerIndex == -1){
-                  selectedAnswerIndex=2;
-                  setState(() { });
+                onPressed: () {
+                  if (selectedAnswers[currentIndex] == -1) {
+                    setState(() {
+                      selectedAnswers[currentIndex] = 2;
+                    });
+                    countAnswer();
                   }
-                  countAnswer();
                 },
                 child: Text(
                   questionSet[currentIndex]["options"][2],
@@ -208,12 +211,13 @@ class _QuizAppState extends State<QuizApp>{
               height: 40,
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: currentOption(3)),
-                onPressed: () { 
-                  if(selectedAnswerIndex == -1){
-                  selectedAnswerIndex=3;
-                  setState(() { });
+                onPressed: () {
+                  if (selectedAnswers[currentIndex] == -1) {
+                    setState(() {
+                      selectedAnswers[currentIndex] = 3;
+                    });
+                    countAnswer();
                   }
-                  countAnswer();
                 },
                 child: Text(
                   questionSet[currentIndex]["options"][3],
@@ -228,55 +232,50 @@ class _QuizAppState extends State<QuizApp>{
         ),
         floatingActionButton: Row(
           children: [
-             const SizedBox(
+            const SizedBox(
               width: 45,
             ),
             FloatingActionButton(
-          onPressed: () {
-            if (currentIndex > 0) {
-          setState(() {
-            currentIndex--;
-            // When going back, retain the selected answer for the previous question
-            selectedAnswerIndex = selectedAnswerIndex == -1
-                ? -1
-                : selectedAnswerIndex;
-          }
-          );
-          }
-          },
-          backgroundColor: Colors.blue,
-          child: const Icon(
-            Icons.arrow_back_ios_new_sharp,
-            color: Colors.orange,
+              onPressed: () {
+                if (currentIndex > 0) {
+                  setState(() {
+                    currentIndex--;
+                  });
+                }
+              },
+              backgroundColor: Colors.blue,
+              child: const Icon(
+                Icons.arrow_back_ios_new_sharp,
+                color: Colors.orange,
+              ),
             ),
-        ),
-        const SizedBox(
-          width: 220,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            if(selectedAnswerIndex == -1){
-
-            }else{
-              if(currentIndex < questionSet.length-1){
-                currentIndex++;
-                selectedAnswerIndex=-1;
-              }else{
-                questionpage=false;
-              }
-              setState(() { });
-            }
-          },
-          backgroundColor: Colors.blue,
-          child: const Icon(
-            Icons.arrow_forward_ios_sharp,
-            color: Colors.orange,
+            const SizedBox(
+              width: 220,
             ),
+            FloatingActionButton(
+              onPressed: () {
+                if (selectedAnswers[currentIndex] != -1) {
+                  if (currentIndex < questionSet.length - 1) {
+                    setState(() {
+                      currentIndex++;
+                    });
+                  } else {
+                    setState(() {
+                      questionPage = false; 
+                    });
+                  }
+                }
+              },
+              backgroundColor: Colors.blue,
+              child: const Icon(
+                Icons.arrow_forward_ios_sharp,
+                color: Colors.orange,
+              ),
+            ),
+          ],
         ),
-          ]
-        )
-      );   
-    }else{
+      );
+   }else{
       return Scaffold(
         appBar:AppBar(
           title: const Text(
@@ -297,13 +296,13 @@ class _QuizAppState extends State<QuizApp>{
               height: 50,
             ),
             Container(
-                width: 80,
-                height: 80,
+                width: 150,
+                height: 150,
                 color: Colors.white,
-                child: Image.network("https://www.google.co.in/imgres?q=trophy%20images&imgurl=https%3A%2F%2Fpng.pngtree.com%2Fpng-clipart%2F20190516%2Foriginal%2Fpngtree-realistic-trophy-gold-cup-png-image_3696414.jpg&imgrefurl=https%3A%2F%2Fpngtree.com%2Fso%2Ftrophy&docid=B9ELGDYK7fPWMM&tbnid=f3XoxhDl8j90aM&vet=12ahUKEwj9w7e9yuWIAxX7RWwGHQLSHYQQM3oFCIQBEAA..i&w=1200&h=1200&hcb=2&ved=2ahUKEwj9w7e9yuWIAxX7RWwGHQLSHYQQM3oFCIQBEAA"),
+                child: Image.asset("assets/trophy.jpeg"),
               ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             const SizedBox(
               height: 40,
@@ -316,12 +315,12 @@ class _QuizAppState extends State<QuizApp>{
                 ),
             ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
               children: [
                   const SizedBox(
-                    width: 110,
+                    width: 130,
                   ),
                 Text(
                   "Score: $count/${questionSet.length}",
@@ -332,15 +331,52 @@ class _QuizAppState extends State<QuizApp>{
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                const SizedBox(
+                  width: 40,
+                ),
+                SizedBox(
+                  width: 120,
+                  height: 40,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue
+                    ),
+                    onPressed: () { 
+                      
+                      currentIndex=0;
+                      questionPage=true;
+                      count=0;
+                      setState(() { });
+                    },
+                    child: const Text(
+                      "Review",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.orange
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 70,
+                ),
+                SizedBox(
               width: 100,
               height: 40,
               child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: currentOption(1)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue
+                ),
                 onPressed: () { 
-                  selectedAnswerIndex=-1;
+                  selectedAnswers = List.filled(questionSet.length, -1);
                   currentIndex=0;
-                  questionpage=true;
+                  questionPage=true;
                   count=0;
                   setState(() { });
                 },
@@ -349,10 +385,14 @@ class _QuizAppState extends State<QuizApp>{
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
+                    color: Colors.orange
                   ),
                 ),
               ),
             ),
+              ],
+            ),
+            
           ],
         ),
       );

@@ -50,11 +50,17 @@ class _ShoeDemoPage extends State<ShoeDemoPage>{
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 280,
-                child:Image.network("https://app.vectary.com/website_assets/636cc9840038712edca597df/636cc9840038713d9aa59ac2_UV_hero.jpg",
-                fit: BoxFit.cover,
-              ),
+              Row(
+                children: [
+                  const SizedBox(width: 20,),
+                  SizedBox(
+                    height: 280,
+                    width: 350,
+                    child:Image.asset("assets/shoe.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  ),
+                ],
               ),
               const Padding(
                 padding: EdgeInsets.all(20),

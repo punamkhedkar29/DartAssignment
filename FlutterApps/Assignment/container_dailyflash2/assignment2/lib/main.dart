@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
               height: 100,
               width: 100,
               decoration:BoxDecoration(
-                border: Border.all(color: Colors.red,width: 5),
+                border: Border(left: BorderSide(color: Colors.red,width: 5, )),
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 color: Colors.blue,
               ),

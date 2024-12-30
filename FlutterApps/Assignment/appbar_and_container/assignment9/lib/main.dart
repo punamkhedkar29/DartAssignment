@@ -26,6 +26,7 @@ class MainApp extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(20)),
               color: Colors.blue,
             ),
+            margin: ,
           )
         ),
       ),

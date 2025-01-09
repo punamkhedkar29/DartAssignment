@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:api_device_info/product_page.dart';
+import 'package:api_device_info/post_data.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -54,6 +55,11 @@ class _APIBindingState extends State<APIBinding> {
                   ),
                   const SizedBox(width: 40,),
                   GestureDetector(
+                    onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return const PostData();
+                      }));
+                      },
                     
                     child: Container(
                       height: 50,
@@ -131,8 +137,11 @@ class _APIBindingState extends State<APIBinding> {
    http.Response response= await http.get(url);
    List<dynamic> jsonData = json.decode(response.body);
    log("${jsonData}");
+   deviceList=jsonData;
    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return DevicePage(deviceList: jsonData,);
+    return DevicePage();
    }));
   }
+
+  
 }

@@ -85,9 +85,6 @@ class DeviceDetails extends StatelessWidget {
                     :
                     Text("Device Generation: ${deviceIndividual[0]['data']['Generation']}")),
 
-                    // Text("Device Capacity: ${deviceIndividual[0]['data']['capacity']}"),
-                    // Text("Device Price: ${deviceIndividual[0]['data']['price']}"),
-                    // Text("Device Generation: ${deviceIndividual[0]['data']['generation']}"),
                   ]
               ),
           ],

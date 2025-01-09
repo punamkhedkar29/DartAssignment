@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 
 
 int globalIndex=0;
+ List<dynamic> deviceList=[];
 
 // ignore: must_be_immutable
 class DevicePage extends StatelessWidget {
-  List<dynamic> deviceList=[];
-  DevicePage({super.key, required this.deviceList});
+ 
+  DevicePage({super.key});
 
   List<String> imagesList=[
     "assets/Devices/Google pixel 6 pro.jpeg",

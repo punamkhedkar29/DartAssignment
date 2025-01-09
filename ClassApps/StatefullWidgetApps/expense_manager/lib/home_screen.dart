@@ -11,21 +11,22 @@ class _HomeScreen extends State<HomeScreen>{
   @override  
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 250,),
+            const SizedBox(height: 250,),
             Container(
               height: 144,
               width: 144,
-              padding: EdgeInsets.all(25),
+              padding: const EdgeInsets.all(25),
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 235, 235, 235),
                 shape: BoxShape.circle
               ),
-              child: Image.asset("assets/Log in@2x.png", fit: BoxFit.contain,height: 58, width: 69,),
+              child: Image.asset("assets/home_logo.png", fit: BoxFit.contain,height: 58, width: 69,),
             ),
-            SizedBox(height: 200,),
+            const SizedBox(height: 200,),
             Text(
               "Expense Manager",
               style: GoogleFonts.poppins(

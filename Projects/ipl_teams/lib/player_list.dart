@@ -27,7 +27,7 @@ class PlayerList extends StatelessWidget {
               itemCount: players.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     height: 140,
                     width: double.infinity,
@@ -53,7 +53,7 @@ class PlayerList extends StatelessWidget {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Container(
                             height: 100,
                             width: 100,
@@ -74,21 +74,21 @@ class PlayerList extends StatelessWidget {
                           children: [
                             Text("Name: ${players[index]["name"]}",
                               style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500
                               ),
                             ),
                             const SizedBox(height: 10),
                             Text("Jersey No.: ${players[index]["jerNo"]}",
                             style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500
                               ),
                             ),
                             const SizedBox(height: 10),
                             Text("Team: ${players[index]["team"]}",
                             style: const TextStyle(
-                                fontSize: 15.5,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500
                               ),
                             ),

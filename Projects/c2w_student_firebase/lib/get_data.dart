@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:c2w_student_firebase/add_data.dart';
 
 class GetData extends StatefulWidget {
   const GetData({super.key});
@@ -30,7 +29,12 @@ class _GetDataState extends State<GetData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
-        title: const Text("C2W Students"),
+        title: const Text("C2W Students",
+        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500
+                        ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -51,21 +55,43 @@ class _GetDataState extends State<GetData> {
                 });
               },
               child: Container(
-                height: 140,
+                height: 150,
                 width: 200,
                 decoration: BoxDecoration(
                   border: Border.all(),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10,),
-                    Text("Student Name : ${studData[index]["name"]}"),
-                    const SizedBox(height: 15,),
-                    Text("Student College : ${studData[index]["clg"]}"),
-                    const SizedBox(height: 15,),
-                    Text("Student Course : ${studData[index]["course"]}"),
-                    const SizedBox(height: 15,),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 10,),
+                        Text("Student Name : ${studData[index]["name"]}",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500
+                          ),
+                        ),
+                        const SizedBox(height: 15,),
+                        Text("Student College : ${studData[index]["clg"]}",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500
+                          ),
+                        ),
+                        const SizedBox(height: 15,),
+                        Text("Student Course : ${studData[index]["course"]}",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500
+                          ),
+                        ),
+                        const SizedBox(height: 15,),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),

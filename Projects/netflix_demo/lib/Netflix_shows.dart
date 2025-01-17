@@ -119,7 +119,7 @@ class _NetflixDemo extends State<NetflixShows>{
         ),
         body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -132,35 +132,39 @@ class _NetflixDemo extends State<NetflixShows>{
                       fontSize: 13,
                     ),
                 ),
-                const Padding(padding: EdgeInsets.all(7)),
-                Container(
-                  width: 70,
-                  height: 30,
-                  padding: const EdgeInsets.all(5),
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                  ),
-                  child: const Text("Join now",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const Padding(padding: EdgeInsets.all(7)),
+                const Padding(padding: EdgeInsets.all(5)),
                 Container(
                   width: 60,
                   height: 30,
-                  padding: const EdgeInsets.all(5),
+                  //padding: const EdgeInsets.all(3),
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                  ),
+                  child: Center(
+                    child: const Text("Join now",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                const Padding(padding: EdgeInsets.all(5)),
+                Container(
+                  width: 50,
+                  height: 30,
+                 // padding: const EdgeInsets.all(3),
                   decoration: BoxDecoration(
                     color: Colors.black,
                     border: Border.all(color: Colors.white)
                   ),
-                  child: const Text("Sign In",
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: Center(
+                    child: const Text("Sign In",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
                

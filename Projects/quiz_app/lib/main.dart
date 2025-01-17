@@ -89,146 +89,149 @@ class _QuizAppState extends State<QuizApp> {
           title: const Text(
             "Quiz App",
             style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w900,
-              color: Colors.orange,
+              fontSize: 29,
+              fontWeight: FontWeight.w700,
+              //color: Colors.orange,
             ),
           ),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 40,
-            ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 110,
-                ),
-                Text(
-                  "Question: ${currentIndex + 1}/${questionSet.length}",
-                  style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              // const SizedBox(
+              //   height: 40,
+              // ),
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 110,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 380,
-              height: 50,
-              child: Text(
-                questionSet[currentIndex]["question"],
-                style: const TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.w700),
+                  Text(
+                    "Question: ${currentIndex + 1}/${questionSet.length}",
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 300,
-              height: 40,
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: currentOption(0)),
-                onPressed: () {
-                  if (selectedAnswers[currentIndex] == -1) {
-                    setState(() {
-                      selectedAnswers[currentIndex] = 0;
-                    });
-                    countAnswer();
-                  }
-                },
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                //width: 380,
+                height: 60,
                 child: Text(
-                  questionSet[currentIndex]["options"][0],
+                  questionSet[currentIndex]["question"],
                   style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+                      fontSize: 20, fontWeight: FontWeight.w700),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                width: 300,
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: currentOption(0)),
+                  onPressed: () {
+                    if (selectedAnswers[currentIndex] == -1) {
+                      setState(() {
+                        selectedAnswers[currentIndex] = 0;
+                      });
+                      countAnswer();
+                    }
+                  },
+                  child: Text(
+                    questionSet[currentIndex]["options"][0],
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 300,
-              height: 40,
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: currentOption(1)),
-                onPressed: () {
-                  if (selectedAnswers[currentIndex] == -1) {
-                    setState(() {
-                      selectedAnswers[currentIndex] = 1;
-                    });
-                    countAnswer();
-                  }
-                },
-                child: Text(
-                  questionSet[currentIndex]["options"][1],
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: 300,
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: currentOption(1)),
+                  onPressed: () {
+                    if (selectedAnswers[currentIndex] == -1) {
+                      setState(() {
+                        selectedAnswers[currentIndex] = 1;
+                      });
+                      countAnswer();
+                    }
+                  },
+                  child: Text(
+                    questionSet[currentIndex]["options"][1],
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 300,
-              height: 40,
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: currentOption(2)),
-                onPressed: () {
-                  if (selectedAnswers[currentIndex] == -1) {
-                    setState(() {
-                      selectedAnswers[currentIndex] = 2;
-                    });
-                    countAnswer();
-                  }
-                },
-                child: Text(
-                  questionSet[currentIndex]["options"][2],
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: 300,
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: currentOption(2)),
+                  onPressed: () {
+                    if (selectedAnswers[currentIndex] == -1) {
+                      setState(() {
+                        selectedAnswers[currentIndex] = 2;
+                      });
+                      countAnswer();
+                    }
+                  },
+                  child: Text(
+                    questionSet[currentIndex]["options"][2],
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SizedBox(
-              width: 300,
-              height: 40,
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: currentOption(3)),
-                onPressed: () {
-                  if (selectedAnswers[currentIndex] == -1) {
-                    setState(() {
-                      selectedAnswers[currentIndex] = 3;
-                    });
-                    countAnswer();
-                  }
-                },
-                child: Text(
-                  questionSet[currentIndex]["options"][3],
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: 300,
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: currentOption(3)),
+                  onPressed: () {
+                    if (selectedAnswers[currentIndex] == -1) {
+                      setState(() {
+                        selectedAnswers[currentIndex] = 3;
+                      });
+                      countAnswer();
+                    }
+                  },
+                  child: Text(
+                    questionSet[currentIndex]["options"][3],
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         floatingActionButton: Row(
           children: [
@@ -250,7 +253,7 @@ class _QuizAppState extends State<QuizApp> {
               ),
             ),
             const SizedBox(
-              width: 220,
+              width: 190,
             ),
             FloatingActionButton(
               onPressed: () {
@@ -281,119 +284,121 @@ class _QuizAppState extends State<QuizApp> {
           title: const Text(
             "Result",
             style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w900,
-              color: Colors.orange,
+              fontSize: 29,
+              fontWeight: FontWeight.w700,
+              //color: Colors.orange,
             ),
           ),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Container(
-                width: 150,
-                height: 150,
-                color: Colors.white,
-                child: Image.asset("assets/trophy.jpeg"),
+        body:Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              Container(
+                  width: 150,
+                  height: 150,
+                  color: Colors.white,
+                  child: Image.asset("assets/trophy.jpeg"),
+                ),
+              const SizedBox(
+                height: 30,
               ),
-            const SizedBox(
-              height: 30,
-            ),
-            const SizedBox(
-              height: 40,
-              child: Text(
-                "Congratulations!!!",
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              children: [
-                  const SizedBox(
-                    width: 130,
-                  ),
-                Text(
-                  "Score: $count/${questionSet.length}",
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 40,
-                ),
-                SizedBox(
-                  width: 120,
-                  height: 40,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue
+              const SizedBox(
+                height: 40,
+                child: Text(
+                  "Congratulations!!!",
+                  style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
                     ),
-                    onPressed: () { 
-                      
-                      currentIndex=0;
-                      questionPage=true;
-                      count=0;
-                      setState(() { });
-                    },
-                    child: const Text(
-                      "Review",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.orange
+                  ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                    const SizedBox(
+                      width: 130,
+                    ),
+                  Text(
+                    "Score: $count/${questionSet.length}",
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  SizedBox(
+                    width: 120,
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue
+                      ),
+                      onPressed: () { 
+                        
+                        currentIndex=0;
+                        questionPage=true;
+                        count=0;
+                        setState(() { });
+                      },
+                      child: const Text(
+                        "Review",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 70,
-                ),
-                SizedBox(
-              width: 100,
-              height: 40,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue
-                ),
-                onPressed: () { 
-                  selectedAnswers = List.filled(questionSet.length, -1);
-                  currentIndex=0;
-                  questionPage=true;
-                  count=0;
-                  setState(() { });
-                },
-                child: const Text(
-                  "Reset",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.orange
+                  const SizedBox(
+                    width: 70,
+                  ),
+                  SizedBox(
+                width: 100,
+                height: 40,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue
+                  ),
+                  onPressed: () { 
+                    selectedAnswers = List.filled(questionSet.length, -1);
+                    currentIndex=0;
+                    questionPage=true;
+                    count=0;
+                    setState(() { });
+                  },
+                  child: const Text(
+                    "Reset",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black
+                    ),
                   ),
                 ),
               ),
-            ),
-              ],
-            ),
-            
-          ],
+                ],
+              ),
+              
+            ],
+          ),
         ),
       );
     }

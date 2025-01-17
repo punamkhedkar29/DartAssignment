@@ -47,11 +47,11 @@ class DevicePage extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2) ,
             itemBuilder: (context, index){
              return Padding(
-               padding: const EdgeInsets.all(6.0),
+               padding: const EdgeInsets.all(2.0),
                child: Container(
-                  height: 170,
+                  height: 180,
                   width: 90,
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.purple),
                     color: Colors.white,

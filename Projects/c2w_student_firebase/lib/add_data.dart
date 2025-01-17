@@ -30,7 +30,12 @@ class _AddStudDataState extends State<AddStudData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("C2W Students"),
+        title: const Text("C2W Students",
+        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500
+                        ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -86,18 +91,20 @@ class _AddStudDataState extends State<AddStudData> {
                       child: Container(
                         height: 40,
                         width: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
-                          color: (isSelected==true) ? Color.fromARGB(255, 122, 192, 250) : Colors.white,
+                          color: (isSelected==true) ? const Color.fromARGB(255, 122, 192, 250) : Colors.white,
                         ),
-                        child: const Text("Offline",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500
+                        child: const Center(
+                          child: Text("Offline",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
@@ -109,18 +116,20 @@ class _AddStudDataState extends State<AddStudData> {
                       child: Container(
                         height: 40,
                         width: 100,
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
-                          color: (isSelected==false) ? Color.fromARGB(255, 122, 192, 250) : Colors.white,
+                          color: (isSelected==false) ? const Color.fromARGB(255, 122, 192, 250) : Colors.white,
                         ),
-                        child: const Text("Online",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500
+                        child: const Center(
+                          child: Text("Online",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     )
@@ -145,18 +154,20 @@ class _AddStudDataState extends State<AddStudData> {
                       child: Container(
                         height: 40,
                         width: 130,
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 122, 192, 250),
+                          color: const Color.fromARGB(255, 122, 192, 250),
                         ),
-                        child: const Text("Add Course",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500
+                        child: const Center(
+                          child: Text("Add Course",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
@@ -195,7 +206,7 @@ class _AddStudDataState extends State<AddStudData> {
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 122, 192, 250),
+                          color: const Color.fromARGB(255, 122, 192, 250),
                         ),
                         child: const Text("Add Data",
                           style: TextStyle(
@@ -211,14 +222,7 @@ class _AddStudDataState extends State<AddStudData> {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context){
                             return const GetData();
                         }));
-                        // QuerySnapshot response = await FirebaseFirestore.instance.collection("c2w_Student_Data").get();
                         
-                        // for(int i=0; i<response.docs.length; i++){
-                        //   StudData.add(
-                        //     StudentModel(name: response.docs[i]['name'], college: response.docs[i]['college'], course: response.docs[i]['course'])
-                        //   );
-                        // }
-                        //setState(() {});
                       },
                       child: Container(
                         height: 40,
@@ -227,7 +231,7 @@ class _AddStudDataState extends State<AddStudData> {
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 122, 192, 250),
+                          color: const Color.fromARGB(255, 122, 192, 250),
                         ),
                         child: const Text("Get Data",
                           style: TextStyle(
